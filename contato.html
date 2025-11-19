@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato - Autocore</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⚙️</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/logo.png" alt="Logo Autocore">
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item"><a class="nav-link" href="index.html">Início</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#servicos">Serviços</a></li>
+              <li class="nav-item"><a class="nav-link" href="index.html#depoimentos">Depoimentos</a></li>
+              <li class="nav-item"><a class="nav-link" href="empresa.html">Empresa</a></li>
+              <li class="nav-item"><a class="nav-link active" aria-current="page" href="contato.html">Contato</a></li>
+            </ul>
+          </div>
+        </div>
+    </nav>
+    
+    <main>
+      <div class="container my-5">
+          <h1 class="section-title">Fale Conosco</h1>
+          <div class="row">
+            <div class="col-md-6 mb-4">
+              <h3>Envie-nos uma Mensagem</h3>
+        <form id="formContato">
+    <div class="mb-3">
+        <label for="nome" class="form-label">Nome Completo</label>
+        <input type="text" class="form-control" id="nome" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">E-mail</label>
+        <input type="email" class="form-control" id="email" required>
+    </div>
+    <div class="mb-3">
+        <label for="mensagem" class="form-label">Mensagem</label>
+        <textarea class="form-control" id="mensagem" rows="5" required></textarea>
+    </div>
+    <button type="button" class="btn btn-primary" onclick="enviarContato()">Enviar Mensagem</button>
+</form>
+            </div>
+            <div class="col-md-6 mb-4">
+              <h3>Informações de Contato</h3>
+              <p><strong>Email:</strong> <a href="mailto:contato@autocore.com.br" class="link-discreto">contato@autocore.com.br</a></p>
+              <p><strong>Telefone:</strong> (49) 9 9125-9617</p>
+              <p><strong>Endereço:</strong> Avenida Getúlio Vargas, 1580, Centro, Chapecó - SC</p>
+            </div>
+          </div>
+      </div>
+    </main>
+
+    <footer class="text-center">
+        <div class="container">
+          <p class="mb-1">© 2025 Autocore. Todos os direitos reservados.</p>
+          <p class="mb-1">Desenvolvido por: Lucas Santos Magro</p>
+          <a href="https://api.whatsapp.com/send?phone=5549991259617" target="_blank">Fale conosco pelo WhatsApp</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+    async function enviarContato() {
+        let nome = document.getElementById('nome').value;
+        let email = document.getElementById('email').value;
+        let mensagem = document.getElementById('mensagem').value;
+        let url = `./back-php/inserir_contato.php?nome=${nome}&email=${email}&mensagem=${mensagem}`;
+
+        let resposta = await fetch(url);
+        let dados = await resposta.json();
+
+        if (dados.mensagem == "Sucesso") {
+            alert("Mensagem enviada!");
+            document.getElementById('formContato').reset();
+        } else {
+            alert("Erro ao enviar.");
+        }
+    }
+</script>
+</body>
+</html>

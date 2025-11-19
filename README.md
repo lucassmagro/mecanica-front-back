@@ -1,2 +1,2 @@
-# mecanica-front-back
-Projeto desenvolvido para a Avaliação A1.3 da disciplina de Fundamentos ao Desenvolvimento Web do curso de Sistemas de Informação (UNOESC).
+# site-autocore-servicos-automotivos
+Site feito com HTML, CSS e Bootstrap para a avaliação A1.1 da disciplina de Fundamentos de Desenvolvimento Web da UNOESC 
