@@ -54,6 +54,9 @@
             <li class="nav-item">
               <a class="nav-link" href="contato.html">Contato</a>
             </li>
+            <li class="nav-item">
+              <a class="nav-link" href="admin.html">Painel Admin</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -161,11 +164,7 @@
               </div>
               <div class="mb-3">
                 <label class="form-label">Data desejada</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="orc_data"
-                />
+                <input type="date" class="form-control" id="orc_data" />
               </div>
             </form>
           </div>
@@ -222,9 +221,9 @@
 
           if (dados.mensagem == "Sucesso") {
             alert("Orçamento solicitado com sucesso!");
-            
+
             document.getElementById("formOrcamento").reset();
-            
+
             location.reload();
           } else {
             alert("Ocorreu um erro ao salvar.");
